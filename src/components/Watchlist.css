@@ -1,0 +1,20 @@
+.WatchlistMain .theStocks {
+    list-style: none;
+    padding-left: 0;
+    width: 250px;
+} 
+.WatchlistMain li {
+    color: #333;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    list-style: none;
+}
+
+h2 {
+    color: white;
+}
+
+ul.theStocks {
+    padding: 0;
+}

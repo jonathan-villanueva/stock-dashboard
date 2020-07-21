@@ -1,0 +1,13 @@
+body {
+  padding: 50px;
+  background-color: #206b91;
+  font-family: sans-serif;
+}
+
+#container {
+  justify-content: center;
+}
+
+h1 {
+  color: white
+}
