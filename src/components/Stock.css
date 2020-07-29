@@ -1,0 +1,12 @@
+.StockMain {
+    position: relative;
+}
+
+.price {
+    margin: 0px;
+    padding: 0px;
+    display: inline;
+    position: absolute;
+    right: 15px;
+    font-weight: bold;
+  }

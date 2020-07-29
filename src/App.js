@@ -9,7 +9,7 @@ function App() {
   return (
     <div id="container">
       <header>
-      <h1>Stock Portfolio</h1>
+      <h1>Stocks</h1>
       </header>
       
       <Adder />
