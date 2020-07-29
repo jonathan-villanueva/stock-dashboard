@@ -2,6 +2,10 @@
     position: relative;
 }
 
+.StockContainer {
+    background-color: white;
+}
+
 .price {
     margin: 0px;
     padding: 0px;
