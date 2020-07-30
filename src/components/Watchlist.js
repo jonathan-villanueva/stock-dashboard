@@ -12,7 +12,7 @@ class Watchlist extends Component {
 
     render() {
         var stockEntries = this.props.entries
-        var listItems = stockEntries.map((stock) => <Stock color="white" ticker={stock.ticker}/>)
+        var listItems = stockEntries.map((stock) => <Stock color="black" ticker={stock.ticker}/>)
 
         return (
             <div className="WatchlistMain">

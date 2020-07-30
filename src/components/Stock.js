@@ -19,36 +19,42 @@ class Stock extends React.Component {
     componentDidMount() {
         this.timerID = setInterval(
           () => this.tick(),
-          1000
+          60000
         );
+        this.tick()
     }
 
     tick() {
-        var api_url = "https://cloud.iexapis.com/stable/stock/" + this.state.ticker + "/quote/latestPrice?token=pk_da183058d14d4805bf7614f9da7fe0ba"
-        var api_url_prev = "https://cloud.iexapis.com/stable/stock/" + this.state.ticker + "/previous?token=pk_da183058d14d4805bf7614f9da7fe0ba"
+        var api_url = "https://api.tdameritrade.com/v1/marketdata/" + this.state.ticker + "/quotes?apikey=RARVUUUYGVDII7WJVG9GW2JMKXEMCQVA"
+        var api_url_prev = "https://api.tdameritrade.com/v1/marketdata/" + this.state.ticker + "/quotes?apikey=RARVUUUYGVDII7WJVG9GW2JMKXEMCQVA"
+
         fetch(api_url, {
             method: 'get'
           })
           .then(function(body){
-            return body.text();
-          }).then((data) => this.setState({price: data}));
+            return body.json();
+          }).then((data) => this.setState({price: data[this.state.ticker].lastPrice}));
 
           fetch(api_url_prev, {
             method: 'get'
           })
           .then(function(body){
             return body.json();
-          }).then((data) => this.setState({prev_price: data.close}));
+          }).then((data) => this.setState({prev_price: data[this.state.ticker].closePrice}, () => {
+            if(this.state.price > this.state.prev_price) {
+                this.setState({color: "green"})
+            } else
+            if(this.state.price === this.state.prev_price) {
+                this.setState({color: "black"})
+            } else
+            if(this.state.price < this.state.prev_price) {
+                this.setState({color: "red"})
+            }
+          }
+          ));
 
-        if(this.state.price > this.state.prev_price) {
-            this.setState({color: "green"})
-        } else
-        if(this.state.price === this.state.prev_price) {
-            this.setState({color: "black"})
-        } else
-        if(this.state.price < this.state.prev_price) {
-            this.setState({color: "red"})
-        }
+
+        console.log(this.state.color);
 
     }
 
