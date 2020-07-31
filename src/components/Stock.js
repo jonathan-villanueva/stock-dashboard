@@ -1,8 +1,11 @@
 import React, { Component } from "react"
 
 import './Stock.css';
+import ErrorHandler from "./ErrorHandler"
+
 
 class Stock extends React.Component {
+
     constructor(props) {
         super(props)
 
@@ -24,6 +27,7 @@ class Stock extends React.Component {
         this.tick()
     }
 
+
     tick() {
         var api_url = "https://api.tdameritrade.com/v1/marketdata/" + this.state.ticker + "/quotes?apikey=RARVUUUYGVDII7WJVG9GW2JMKXEMCQVA"
         var api_url_prev = "https://api.tdameritrade.com/v1/marketdata/" + this.state.ticker + "/quotes?apikey=RARVUUUYGVDII7WJVG9GW2JMKXEMCQVA"
@@ -33,7 +37,11 @@ class Stock extends React.Component {
           })
           .then(function(body){
             return body.json();
-          }).then((data) => this.setState({price: data[this.state.ticker].lastPrice}));
+          }).then((data) => this.setState(
+            {price: data[this.state.ticker].lastPrice
+            }
+            )
+          ).catch(err => console.log(err))
 
           fetch(api_url_prev, {
             method: 'get'
@@ -51,17 +59,16 @@ class Stock extends React.Component {
                 this.setState({color: "red"})
             }
           }
-          ));
-
-
-        console.log(this.state.color);
-
+          )
+          ).catch(err => console.log(err))
     }
 
     render() {
         return (
             <div className="StockMain">
+              <ErrorHandler>
                 <li className="StockContainer" key={this.props.key} style={{color: this.state.color}}>{this.state.ticker} <p className="price">{this.state.price}</p> </li>
+              </ErrorHandler>
             </div>
         )
     }

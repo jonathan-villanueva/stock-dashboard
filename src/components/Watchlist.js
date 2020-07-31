@@ -3,6 +3,7 @@ import React, { Component } from "react"
 import "./Watchlist.css"
 
 import Stock from "./Stock"
+import ErrorHandler from "./ErrorHandler.js"
 
 class Watchlist extends Component {
     constructor(props) {
@@ -12,12 +13,16 @@ class Watchlist extends Component {
 
     render() {
         var stockEntries = this.props.entries
-        var listItems = stockEntries.map((stock) => <Stock color="black" ticker={stock.ticker}/>)
+        var listItems = stockEntries.map(
+        (stock) => 
+        <ErrorHandler>
+            <Stock color="black" ticker={stock.ticker}/>
+        </ErrorHandler>)
 
         return (
             <div className="WatchlistMain">
                 <ul className="theStocks">
-                    <div className="tickers">
+                    <div className="tickers">        
                         {listItems}
                     </div>
                 </ul>
