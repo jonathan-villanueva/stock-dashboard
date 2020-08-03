@@ -28,6 +28,17 @@ class Stock extends React.Component {
     }
 
 
+    sendMessage=(data)=>{
+      const {websocket} = this.props // websocket instance passed as props to the child component.
+
+      try {
+          websocket.send(data) //send data to the server
+      } catch (error) {
+          console.log(error) // catch error
+      }
+    }
+
+
     tick() {
         var api_url = "https://api.tdameritrade.com/v1/marketdata/" + this.state.ticker + "/quotes?apikey=RARVUUUYGVDII7WJVG9GW2JMKXEMCQVA"
         var api_url_prev = "https://api.tdameritrade.com/v1/marketdata/" + this.state.ticker + "/quotes?apikey=RARVUUUYGVDII7WJVG9GW2JMKXEMCQVA"
