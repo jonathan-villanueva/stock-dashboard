@@ -1,14 +1,16 @@
 .StockMain {
     padding: 0px;
     margin: 0px;
+    margin-top: 15px;
     background-color: white;
+    width: 20em;
 }
 
 .inner {
-    display: inline-block
+    display: inline-block;
 }
 
-button {
+.StockMain button {
     padding: 2px;
     font-size: 16px;
     margin: 10px;
@@ -16,9 +18,10 @@ button {
     background-color: #0066FF;
     color: #FFF;
     border: 2px solid #0066FF;
+    float: right;
   }
 
-button:hover {
+.StockMain button:hover {
     background-color: #003399;
     border: 2px solid #003399;
     cursor: pointer;

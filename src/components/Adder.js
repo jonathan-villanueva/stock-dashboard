@@ -16,7 +16,7 @@ class Adder extends React.Component {
     addItem(e) {
         if(this._inputElement.value !== "") {
             var newItem = {
-                ticker: this._inputElement.value,
+                ticker: this._inputElement.value.toUpperCase(),
                 key: Date.now(),
                 color: "white"
             }
@@ -46,7 +46,7 @@ class Adder extends React.Component {
                 <form onSubmit={this.addItem}>
                     <div className="AdderMain">
                         <h2>Watchlist</h2> 
-                        <input type="text" ref={(a) => this._inputElement = a} placeholder="Ticker (ex. FRSX)"/>
+                        <input type="text" ref={(a) => this._inputElement = a} placeholder="Ticker Symbol"/>
                         <button id="AddButton" type="submit">Add</button>
                     </div>
 
