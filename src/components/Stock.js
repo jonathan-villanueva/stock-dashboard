@@ -77,9 +77,11 @@ class Stock extends React.Component {
     render() {
         return (
             <div className="StockMain">
-              <ErrorHandler>
-                <li className="StockContainer" key={this.props.key} style={{color: this.state.color}}>{this.state.ticker} <p className="price">{this.state.price}</p> </li>
-              </ErrorHandler>
+                <li className="StockContainer" key={this.state.ticker} style={{color: this.state.color}}>
+                  <p className="inner">{this.state.ticker}</p>
+                  <p className="inner">{this.state.price}</p> 
+                  <button type="button" className="inner">Remove</button>
+                </li>
             </div>
         )
     }

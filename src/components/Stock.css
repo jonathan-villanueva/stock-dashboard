@@ -1,16 +1,29 @@
 .StockMain {
-    position: relative;
-}
-
-.StockContainer {
+    padding: 0px;
+    margin: 0px;
     background-color: white;
 }
 
-.price {
-    margin: 0px;
-    padding: 0px;
-    display: inline;
-    position: absolute;
-    right: 15px;
-    font-weight: bold;
+.inner {
+    display: inline-block
+}
+
+button {
+    padding: 2px;
+    font-size: 16px;
+    margin: 10px;
+    margin-right: 0px;
+    background-color: #0066FF;
+    color: #FFF;
+    border: 2px solid #0066FF;
   }
+
+button:hover {
+    background-color: #003399;
+    border: 2px solid #003399;
+    cursor: pointer;
+  }
+
+p {
+    font-size: 130%;
+}

@@ -7,18 +7,19 @@ p {
     font-size: 16px;
     border: 2px solid #FFF;
     width: 165px;
-  }
-  .AdderMain button {
-    padding: 10px;
-    font-size: 16px;
-    margin: 10px;
-    margin-right: 0px;
-    background-color: #0066FF;
-    color: #FFF;
-    border: 2px solid #0066FF;
-  }
-  .AdderMain button:hover {
-    background-color: #003399;
-    border: 2px solid #003399;
-    cursor: pointer;
-  }
+}
+
+.AdderMain button {
+  padding: 10px;
+  font-size: 16px;
+  margin: 10px;
+  margin-right: 0px;
+  background-color: #0066FF;
+  color: #FFF;
+  border: 2px solid #0066FF;
+}
+.AdderMain button:hover {
+  background-color: #003399;
+  border: 2px solid #003399;
+  cursor: pointer;
+}

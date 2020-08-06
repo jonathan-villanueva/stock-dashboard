@@ -35,16 +35,22 @@ class Adder extends React.Component {
         e.preventDefault()
     }
 
+    handleRemove(id) {
+        console.log(id)
+    }
+
 
     render() {
         return (
-            <div className="AdderMain">
+            <div>
                 <form onSubmit={this.addItem}>
-                    <h2>Watchlist</h2> 
-                    <input type="text" ref={(a) => this._inputElement = a} placeholder="Ticker (ex. FRSX)"/>
-                    <button type="submit">Add</button>
+                    <div className="AdderMain">
+                        <h2>Watchlist</h2> 
+                        <input type="text" ref={(a) => this._inputElement = a} placeholder="Ticker (ex. FRSX)"/>
+                        <button id="AddButton" type="submit">Add</button>
+                    </div>
 
-                    <Watchlist entries={this.state.items} />
+                    <Watchlist entries={this.state.items} remove={this.handleRemove}/>
                 </form>
             </div>
         )

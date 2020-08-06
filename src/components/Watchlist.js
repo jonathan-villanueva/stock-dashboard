@@ -104,7 +104,9 @@ class Watchlist extends Component {
         var stockEntries = this.props.entries
         var listItems = stockEntries.map(
         (stock) => 
-            <Stock color="black" ticker={stock.ticker} websocket={this.ws}/>
+            <div>
+                <Stock color="black" ticker={stock.ticker} websocket={this.ws}/>
+            </div>
         )
 
         return (
