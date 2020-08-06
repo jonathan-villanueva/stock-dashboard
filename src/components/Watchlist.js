@@ -52,7 +52,7 @@ class Watchlist extends Component {
 
             var auth_msg = {
                 action: "auth",
-                params: "AKSGW7MVZZCXBZ7U4OKS"
+                params: process.env.REACT_APP_ALPACA_KEY
             }
             ws.send(JSON.stringify(auth_msg))
             console.log("websocket authenticated")
@@ -103,9 +103,9 @@ class Watchlist extends Component {
         var stockEntries = this.props.entries
         var listItems = stockEntries.map(
         (stock) => 
-            <div>
+            <li key={stock.ticker}>
                 <Stock key={stock.ticker} color="black" ticker={stock.ticker} websocket={this.ws} remove={this.props.remove}/>
-            </div>
+            </li>
         )
 
         return (

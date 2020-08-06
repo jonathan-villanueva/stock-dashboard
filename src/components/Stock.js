@@ -27,6 +27,10 @@ class Stock extends React.Component {
         this.tick()
     }
 
+    componentWillUnmount() {
+      clearInterval(this.timerID)
+    }
+
 
     sendMessage=(data)=>{
       const {websocket} = this.props // websocket instance passed as props to the child component.
@@ -40,8 +44,8 @@ class Stock extends React.Component {
 
 
     tick() {
-        var api_url = "https://api.tdameritrade.com/v1/marketdata/" + this.state.ticker + "/quotes?apikey=RARVUUUYGVDII7WJVG9GW2JMKXEMCQVA"
-        var api_url_prev = "https://api.tdameritrade.com/v1/marketdata/" + this.state.ticker + "/quotes?apikey=RARVUUUYGVDII7WJVG9GW2JMKXEMCQVA"
+        var api_url = "https://api.tdameritrade.com/v1/marketdata/" + this.state.ticker + "/quotes?apikey=" + process.env.REACT_APP_TD_KEY
+        var api_url_prev = "https://api.tdameritrade.com/v1/marketdata/" + this.state.ticker + "/quotes?apikey=" + process.env.REACT_APP_TD_KEY
 
         fetch(api_url, {
             method: 'get'
@@ -78,11 +82,11 @@ class Stock extends React.Component {
     render() {
         return (
             <div className="StockMain">
-                <li className="StockContainer" key={this.state.ticker} style={{color: this.state.color}}>
+                <div className="StockContainer" key={this.state.ticker} style={{color: this.state.color}}>
                   <p className="inner">{this.state.ticker}</p>
                   <p className="inner">{this.state.price}</p> 
                   <button type="button" className="inner" onClick={() => this.props.remove(this.state.ticker)}>Remove</button>
-                </li>
+                </div>
             </div>
         )
     }
