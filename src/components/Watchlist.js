@@ -99,13 +99,12 @@ class Watchlist extends Component {
         if (!ws || ws.readyState == WebSocket.CLOSED) this.connect(); //check if websocket instance is closed, if so call `connect` function.
     };
 
-    
     render() {
         var stockEntries = this.props.entries
         var listItems = stockEntries.map(
         (stock) => 
             <div>
-                <Stock color="black" ticker={stock.ticker} websocket={this.ws}/>
+                <Stock key={stock.ticker} color="black" ticker={stock.ticker} websocket={this.ws} remove={this.props.remove}/>
             </div>
         )
 

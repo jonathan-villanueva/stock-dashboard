@@ -74,13 +74,14 @@ class Stock extends React.Component {
           ).catch(err => console.log(err))
     }
 
+
     render() {
         return (
             <div className="StockMain">
                 <li className="StockContainer" key={this.state.ticker} style={{color: this.state.color}}>
                   <p className="inner">{this.state.ticker}</p>
                   <p className="inner">{this.state.price}</p> 
-                  <button type="button" className="inner">Remove</button>
+                  <button type="button" className="inner" onClick={() => this.props.remove(this.state.ticker)}>Remove</button>
                 </li>
             </div>
         )

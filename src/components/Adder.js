@@ -11,6 +11,7 @@ class Adder extends React.Component {
         }
 
         this.addItem = this.addItem.bind(this)
+        this.handleRemove = this.handleRemove.bind(this)
     }
 
     addItem(e) {
@@ -35,8 +36,12 @@ class Adder extends React.Component {
         e.preventDefault()
     }
 
-    handleRemove(id) {
-        console.log(id)
+    handleRemove(ticker) {
+        console.log(ticker)
+        const newList = this.state.items.filter((item) => item.ticker !== ticker);
+        this.setState({
+            items: newList
+        })
     }
 
 
